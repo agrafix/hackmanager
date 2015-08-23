@@ -36,4 +36,5 @@ data ProjectInfo
    , pi_github :: GithubInfo
    , pi_license :: LicenseInfo
    , pi_ghcVersions :: [T.Text]
+   , pi_moreInfo :: Maybe T.Text
    } deriving (Show, Eq, Data, Typeable)

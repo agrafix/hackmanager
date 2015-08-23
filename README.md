@@ -59,6 +59,7 @@ main =
 * From Source (cabal): `git clone https://github.com/agrafix/hackmanager.git && cd hackmanager && cabal install`
 * From Source (stack): `git clone https://github.com/agrafix/hackmanager.git && cd hackmanager && stack build`
 
+
 ## Misc
 
 ### Supported GHC Versions

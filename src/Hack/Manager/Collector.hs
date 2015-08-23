@@ -6,6 +6,7 @@ import Hack.Manager.Types
 
 import System.Process
 import System.Exit
+import System.Directory
 import Control.Exception
 import Control.Monad.Except
 import qualified Data.Text as T
@@ -74,6 +75,15 @@ getCliUsage hasStack exec =
           , ce_help = T.pack stdOut
           }
 
+moreFile :: ExceptT String IO (Maybe T.Text)
+moreFile =
+    liftIO $
+    do more <- doesFileExist "MORE.md"
+       if more
+       then do ct <- readFile "MORE.md"
+               return (Just $ T.pack ct)
+       else return Nothing
+
 compileProjectInfo :: PD.GenericPackageDescription -> ExceptT String IO ProjectInfo
 compileProjectInfo gpd =
     do let pkgName = T.pack $ Pkg.unPackageName $ Pkg.pkgName $ PD.package pd
@@ -103,6 +113,7 @@ compileProjectInfo gpd =
        onStackage <- liftIO $ onStackageCheck pkgName
        ghcVers <- findGhcVersions (PD.testedWith pd)
        cliUsage <- getCliUsage hasStack (map fst $ PD.condExecutables gpd)
+       moreFile <- moreFile
        return
            ProjectInfo
            { pi_name = pkgName
@@ -120,6 +131,7 @@ compileProjectInfo gpd =
                }
            , pi_ghcVersions = ghcVers
            , pi_cliUsage = cliUsage
+           , pi_moreInfo = moreFile
            }
     where
       pd = PD.packageDescription gpd
