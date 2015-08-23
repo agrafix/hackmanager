@@ -1,0 +1,59 @@
+{{pi_name}}
+=====
+
+[![Build Status](https://travis-ci.org/{{pi_github.gi_user}}/{{pi_github.gi_project}}.svg)](https://travis-ci.org/{{pi_github.gi_user}}/{{pi_github.gi_project}})
+[![Hackage page (downloads and API reference)][hackage-png]][hackage]
+
+## Intro
+
+Hackage: [{{pi_pkgName}}](http://hackage.haskell.org/package/{{pi_pkgName}})
+{{#pi_onStackage}}
+Stackage: [{{pi_pkgName}}](https://www.stackage.org/package/{{pi_pkgName}})
+{{/pi_onStackage}}
+
+{{pi_pkgDesc}}
+
+{{#pi_cliUsage}}
+## Cli Usage: {{ce_name}}
+
+```sh
+$ {{ce_name}} --help
+{{ce_help}}
+```
+{{/pi_cliUsage}}
+
+{{#pi_example}}
+## Library Usage Example
+
+```haskell
+{{.}}
+```
+{{#pi_moreExamples}}
+
+For more examples check the examples/ directory.
+{{/pi_moreExamples}}
+
+{{/pi_example}}
+## Install
+
+* Using cabal: `cabal install {{pkg-name}}`
+{{#pi_onStackage}}
+* Using Stack: `stack install {{pkg-name}}`
+{{/pi_onStackage}}
+* From Source (cabal): `git clone https://github.com/{{pi_github.gi_user}}/{{pi_github.gi_project}}.git && cd {{pi_github.gi_project}} && cabal install`
+{{#pi_stackFile}}
+* From Source (stack): `git clone https://github.com/{{pi_github.gi_user}}/{{pi_github.gi_project}}.git && cd {{pi_github.gi_project}} && stack build`
+{{/pi_stackFile}}
+
+## Misc
+
+### Supported GHC Versions
+
+{{#pi_ghcVersions}}
+* {{.}}
+{{/pi_ghcVersions}}
+
+### License
+
+Released under the {{pi_license.li_type}} license.
+{{pi_license.li_copyright}}
