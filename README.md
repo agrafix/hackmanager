@@ -2,7 +2,7 @@ hackmanager
 =====
 
 [![Build Status](https://travis-ci.org/agrafix/hackmanager.svg)](https://travis-ci.org/agrafix/hackmanager)
-[![Hackage page (downloads and API reference)][hackage-png]][hackage]
+[![Hackage](https://img.shields.io/hackage/v/hackmanager.svg)](http://hackage.haskell.org/package/hackmanager)
 
 ## Intro
 
