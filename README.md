@@ -2,11 +2,10 @@ hackmanager
 =====
 
 [![Build Status](https://travis-ci.org/agrafix/hackmanager.svg)](https://travis-ci.org/agrafix/hackmanager)
-[![Hackage](https://img.shields.io/hackage/v/hackmanager.svg)](http://hackage.haskell.org/package/hackmanager)
+
 
 ## Intro
 
-Hackage: [hackmanager](http://hackage.haskell.org/package/hackmanager)
 
 Generate useful files for Haskell projects
 
@@ -55,7 +54,6 @@ main =
 
 ## Install
 
-* Using cabal: `cabal install `
 * From Source (cabal): `git clone https://github.com/agrafix/hackmanager.git && cd hackmanager && cabal install`
 * From Source (stack): `git clone https://github.com/agrafix/hackmanager.git && cd hackmanager && stack build`
 

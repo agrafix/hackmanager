@@ -30,6 +30,7 @@ data ProjectInfo
    , pi_pkgDesc :: T.Text
    , pi_stackFile :: Bool
    , pi_onStackage :: Bool
+   , pi_onHackage :: Bool
    , pi_example :: Maybe T.Text
    , pi_moreExamples :: Bool
    , pi_cliUsage :: [CliExecutable]

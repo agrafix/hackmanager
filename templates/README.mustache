@@ -2,11 +2,13 @@
 =====
 
 [![Build Status](https://travis-ci.org/{{pi_github.gi_user}}/{{pi_github.gi_project}}.svg)](https://travis-ci.org/{{pi_github.gi_user}}/{{pi_github.gi_project}})
-[![Hackage](https://img.shields.io/hackage/v/{{pi_pkgName}}.svg)](http://hackage.haskell.org/package/{{pi_pkgName}})
+{{#pi_onHackage}}[![Hackage](https://img.shields.io/hackage/v/{{pi_pkgName}}.svg)](http://hackage.haskell.org/package/{{pi_pkgName}}){{/pi_onHackage}}
 
 ## Intro
 
+{{#pi_onHackage}}
 Hackage: [{{pi_pkgName}}](http://hackage.haskell.org/package/{{pi_pkgName}})
+{{/pi_onHackage}}
 {{#pi_onStackage}}
 Stackage: [{{pi_pkgName}}](https://www.stackage.org/package/{{pi_pkgName}})
 {{/pi_onStackage}}
@@ -36,9 +38,11 @@ For more examples check the examples/ directory.
 {{/pi_example}}
 ## Install
 
-* Using cabal: `cabal install {{pkg-name}}`
+{{#pi_onHackage}}
+* Using cabal: `cabal install {{pi_pkgName}}`
+{{/pi_onHackage}}
 {{#pi_onStackage}}
-* Using Stack: `stack install {{pkg-name}}`
+* Using Stack: `stack install {{pi_pkgName}}`
 {{/pi_onStackage}}
 * From Source (cabal): `git clone https://github.com/{{pi_github.gi_user}}/{{pi_github.gi_project}}.git && cd {{pi_github.gi_project}} && cabal install`
 {{#pi_stackFile}}

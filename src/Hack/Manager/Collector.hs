@@ -43,6 +43,15 @@ onStackageCheck projectName =
                   return $ C.responseStatus resp == Http.ok200
        tryGet `catch` \(_ :: SomeException) -> return False
 
+onHackageCheck :: T.Text -> IO Bool
+onHackageCheck projectName =
+    do mgr <- C.newManager C.tlsManagerSettings
+       initReq <- C.parseUrl ("https://hackage.haskell.org/package/" ++ T.unpack projectName)
+       let tryGet =
+               do resp <- C.httpNoBody initReq mgr
+                  return $ C.responseStatus resp == Http.ok200
+       tryGet `catch` \(_ :: SomeException) -> return False
+
 findGhcVersions :: [(Comp.CompilerFlavor, Vers.VersionRange)] -> ExceptT String IO [T.Text]
 findGhcVersions origVersions =
     forM versions $ \vers ->
@@ -111,6 +120,7 @@ compileProjectInfo gpd =
                     do ex <- liftIO $ readFile file
                        return (Just $ T.pack ex, not $ L.null xs)
        onStackage <- liftIO $ onStackageCheck pkgName
+       onHackage <- liftIO $ onHackageCheck pkgName
        ghcVers <- findGhcVersions (PD.testedWith pd)
        cliUsage <- getCliUsage hasStack (map fst $ PD.condExecutables gpd)
        moreFile <- moreFile
@@ -121,6 +131,7 @@ compileProjectInfo gpd =
            , pi_pkgDesc = T.pack $ PD.synopsis pd
            , pi_stackFile = hasStack
            , pi_onStackage = onStackage
+           , pi_onHackage = onHackage
            , pi_example = example
            , pi_moreExamples = hasMoreEx
            , pi_github = ghInfo
