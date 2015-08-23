@@ -7,6 +7,7 @@ hackmanager
 ## Intro
 
 Hackage: [hackmanager](http://hackage.haskell.org/package/hackmanager)
+Stackage: [hackmanager](https://www.stackage.org/package/hackmanager)
 
 Generate useful files for Haskell projects
 
@@ -56,6 +57,7 @@ main =
 ## Install
 
 * Using cabal: `cabal install hackmanager`
+* Using Stack: `stack install hackmanager`
 * From Source (cabal): `git clone https://github.com/agrafix/hackmanager.git && cd hackmanager && cabal install`
 * From Source (stack): `git clone https://github.com/agrafix/hackmanager.git && cd hackmanager && stack build`
 
