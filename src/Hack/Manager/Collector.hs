@@ -4,23 +4,23 @@ module Hack.Manager.Collector where
 
 import Hack.Manager.Types
 
-import System.Process
-import System.Exit
-import System.Directory
 import Control.Exception
 import Control.Monad.Except
-import qualified Data.Text as T
+import System.Directory
+import System.Exit
+import System.Process
 import qualified Data.List as L
+import qualified Data.Text as T
+import qualified Distribution.Compiler as Comp
+import qualified Distribution.Package as Pkg
+import qualified Distribution.PackageDescription as PD
+import qualified Distribution.PackageDescription.Parse as PD
+import qualified Distribution.Text as DT
+import qualified Distribution.Version as Vers
 import qualified Network.HTTP.Client as C
 import qualified Network.HTTP.Client.TLS as C
 import qualified Network.HTTP.Types.Status as Http
 import qualified System.FilePath.Glob as G
-import qualified Distribution.Text as DT
-import qualified Distribution.Compiler as Comp
-import qualified Distribution.Version as Vers
-import qualified Distribution.Package as Pkg
-import qualified Distribution.PackageDescription as PD
-import qualified Distribution.PackageDescription.Parse as PD
 
 getProjectInfo :: IO (Either String ProjectInfo)
 getProjectInfo =

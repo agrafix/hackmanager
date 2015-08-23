@@ -2,9 +2,9 @@
 module Main where
 
 import Hack.Manager.Collector
+import Hack.Manager.Gitignore
 import Hack.Manager.Readme
 import Hack.Manager.Travis
-import Hack.Manager.Gitignore
 import Hack.Manager.Types
 
 import Control.Monad
