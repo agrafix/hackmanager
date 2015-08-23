@@ -1,8 +1,6 @@
 language: haskell
 env:
-{{#tc_project.pi_ghcVersions}}
-- GHCVER={{.}}
-{{/tc_project.pi_ghcVersions}}
+- GHCVER=7.10.2
 - GHCVER=head
 matrix:
   allow_failures:
@@ -36,5 +34,7 @@ deploy:
   username: AlexanderThiemann
   skip_cleanup: true
   on:
-    condition: "$GHCVER = {{tc_opts.to_ghcRelease}}"
+    condition: $GHCVER = 7.10.2
     tags: true
+  password:
+    secure: QpP4N7a5PUAu8dKhtqItjnr5v2THAu96cIUXn300IkBYhWBOn+LAfCnzzda0oEKg7YPAhfg70BFAQA06MBj18Bbb7rPaSNHi2WxRdxmYMBq31Mg9YGJ4MgpgmgCxOTE9nNai1GPJldxUPVV/+6xnszBoUO1Brcd2avvpf2arVXLPUmEK5kfL0UdwAAUs2qxI2jV4bfWjAnck7vdRd94g4CX0cARkNZGJUl9DlvyiHIvufgsu6Av7ve0bMZ13ZbbiMLTTGhlK4yALqx6/dqayFkQ1l/fvrDA4G9If83gbWkPC5XiLMxPQR5W/ra1Mx31MzReqqELOso4ZOVH+hokb4FS9+ZHbw0F63T54jiM4plSqOWiv/ZmMwsHNhTUbd6uZ3AmfXoFtKrBAIjE/w1IFIvssbNKL6ctnPcK8N5oyIl23llLBpgd9/LSxXF17ChZM+3a1PQ0UM3TSlybgeffRGt7GJA3ZByUy0MBI71TGDFAZC6Sz4fUqg+qN7emKRLnNBwImC5psYZHDdaNJfHNI+Fk98c4AShe1H3lcReRm8xGw6+A4vF0qQSWt5Thn8/t26MyUvbBFW+Al75AqxbsjAUxwrfv3qCZEYhpSHWe6swvvKpcWSI34oFwpFrv5iaT9DtSmnaY8MVn3nM+7ZMx+t5xfiWMo/uWFcz3rqNr+HSw=
